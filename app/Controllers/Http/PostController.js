@@ -16,6 +16,14 @@ class PostController {
         return view.render('posts.add')
     }
 
+    async store({ request, response }) {
+        const data = request.only(['title', 'body'])
+    
+        await Post.create(data)
+    
+        return response.redirect('/posts')
+    }
+
     async details({ params, view }) {
         const post = await Post.find(params.id)
 
@@ -23,7 +31,6 @@ class PostController {
             post: post
         })
     }
-
 }
 
 module.exports = PostController

@@ -20,6 +20,8 @@ Route.on('/').render('home')
 
 Route.get('/posts', 'PostController.index')
 
+Route.post('/posts', 'PostController.store').validator('posts/StorePost')
+
 Route.get('/posts/add', 'PostController.add')
 
 Route.get('/posts/:id', 'PostController.details')

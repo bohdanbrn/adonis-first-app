@@ -4,8 +4,15 @@ module.exports = {
         commonjs: true,
         es6: true,
     },
-    extends: ["standard", "plugin:prettier/recommended"],
-    plugins: ["prettier"],
+    plugins: ["prettier", "sonarjs", "promise", "optimize-regex", "no-secrets"],
+    extends: [
+        "standard",
+        "plugin:prettier/recommended",
+        "plugin:node/recommended",
+        "plugin:sonarjs/recommended",
+        "plugin:promise/recommended",
+        "plugin:array-func/recommended",
+    ],
     globals: {
         Atomics: "readonly",
         SharedArrayBuffer: "readonly",
@@ -20,5 +27,7 @@ module.exports = {
         quotes: ["error", "double"],
         semi: ["error", "always"],
         "prettier/prettier": "error",
+        "optimize-regex/optimize-regex": "warn",
+        "no-secrets/no-secrets": "warn",
     },
 };
